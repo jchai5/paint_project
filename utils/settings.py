@@ -10,9 +10,14 @@ BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 BLUE = (0, 255, 0)
 GREEN = (0, 0, 255)
+YELLOW = (255, 255, 0)
+PURPLE = (127, 0, 255)
+PINK = (255, 0, 255)
+GRAY = (128, 128, 128)
+
 
 # fps
-FPS = 60
+FPS = 1000
 
 # window size 
 WIDTH, HEIGHT = 600, 700
