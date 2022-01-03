@@ -1,7 +1,7 @@
 from utils import *
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT)) # window
-pygame.display.set_caption("Drawing Board") # title on window
+pygame.display.set_caption("SketchPad") # title on window
 
 def init_grid(rows, cols, color):
     grid = []
@@ -26,7 +26,7 @@ def draw_grid(window, grid):
             pygame.draw.line(window, BLACK, (j * PIXEL_SIZE, 0), (j * PIXEL_SIZE, HEIGHT - TOOLBAR_HEIGHT))   
 
 def draw(window, grid, buttons):
-    window.fill(BG_COLOR) #fill background
+    window.fill(TOOLBAR_BG) #fill background
     draw_grid(window, grid)
 
     #draw buttons
@@ -54,21 +54,28 @@ clock = pygame.time.Clock() # for limiting fps
 grid = init_grid(ROWS, COLS, BG_COLOR)
 drawing_color = BLACK # drawing color to start
 
+button_x = HEIGHT - TOOLBAR_HEIGHT/2 + 10
 button_y = HEIGHT - TOOLBAR_HEIGHT/2 - 25 # button width/height = 50
 buttons = [
     # 10px padding, buttons are 50px long
-    Button(10, button_y, 50, 50, BLACK),
-    Button(70, button_y, 50, 50, RED),
-    Button(130, button_y, 50, 50, GREEN),
-    Button(190, button_y, 50, 50, BLUE),
+    Button(10, button_y, 25, 25, BLACK),
+    Button(45, button_y, 25, 25, RED),
+    Button(80, button_y, 25, 25, GREEN),
+    Button(115, button_y, 25, 25, BLUE),
+    Button(10, button_x, 25, 25, YELLOW),
+    Button(45, button_x, 25, 25, PURPLE),
+    Button(80, button_x, 25, 25, PINK),
+    Button(115, button_x, 25, 25, GRAY),
 
-    # Button(10, button_y, 50, 50, YELLOW),
-    # Button(70, button_y, 50, 50, PURPLE),
-    # Button(130, button_y, 50, 50, PINK),
-    # Button(190, button_y, 50, 50, GRAY),
+    Button(150, button_y, 25, 25, CYAN),
+    Button(185, button_y, 25, 25, L_GREEN),
+    Button(220, button_y, 25, 25, L_RED),
+    Button(150, button_x, 25, 25, D_RED),
+    Button(185, button_x, 25, 25, D_BLUE),
+    Button(220, button_x, 25, 25, ORANGE),
 
-    Button(250, button_y, 50, 50, WHITE, "Erase", BLACK),
-    Button(310, button_y, 50, 50, BLUE, "Clear", BLACK)
+    Button(260, button_y, 50, 50, WHITE, "Erase", BLACK),
+    Button(320, button_y, 50, 50, BLUE, "Clear", BLACK)
 ]
 
 while run:
